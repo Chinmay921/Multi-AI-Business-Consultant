@@ -1,0 +1,86 @@
+# Execution Plan: 30/60/90 Day Roadmap
+
+## 30-Day Plan
+
+{% if execution_plan.plan_30_days %}
+{% for task in execution_plan.plan_30_days %}
+### Task {{ loop.index }}: {{ task.task }}
+
+- **Owner:** {{ task.owner }}
+- **Priority:** {{ task.priority }}
+- **Status:** {{ task.status }}
+
+{% endfor %}
+{% else %}
+*30-day plan to be developed*
+{% endif %}
+
+## 60-Day Plan
+
+{% if execution_plan.plan_60_days %}
+{% for task in execution_plan.plan_60_days %}
+### Task {{ loop.index }}: {{ task.task }}
+
+- **Owner:** {{ task.owner }}
+- **Priority:** {{ task.priority }}
+- **Status:** {{ task.status }}
+
+{% endfor %}
+{% else %}
+*60-day plan to be developed*
+{% endif %}
+
+## 90-Day Plan
+
+{% if execution_plan.plan_90_days %}
+{% for task in execution_plan.plan_90_days %}
+### Task {{ loop.index }}: {{ task.task }}
+
+- **Owner:** {{ task.owner }}
+- **Priority:** {{ task.priority }}
+- **Status:** {{ task.status }}
+
+{% endfor %}
+{% else %}
+*90-day plan to be developed*
+{% endif %}
+
+## Process Improvements
+
+{% if execution_plan.process_improvements %}
+{% for improvement in execution_plan.process_improvements %}
+- {{ improvement }}
+{% endfor %}
+{% else %}
+*Process improvements to be identified*
+{% endif %}
+
+## Organizational Changes
+
+{% if execution_plan.org_changes %}
+{% for change in execution_plan.org_changes %}
+- {{ change }}
+{% endfor %}
+{% else %}
+*Organizational changes to be determined*
+{% endif %}
+
+## Resource Requirements
+
+{% if execution_plan.resource_requirements %}
+**People:** {{ execution_plan.resource_requirements.people }}
+
+**Budget:** {{ execution_plan.resource_requirements.budget }}
+
+**Tools:**
+{% if execution_plan.resource_requirements.tools %}
+{% for tool in execution_plan.resource_requirements.tools %}
+- {{ tool }}
+{% endfor %}
+{% else %}
+- To be determined
+{% endif %}
+{% else %}
+*Resource requirements to be detailed*
+{% endif %}
+

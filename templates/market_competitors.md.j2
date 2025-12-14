@@ -1,0 +1,66 @@
+# Market & Competitor Analysis
+
+## Competitors
+
+{% if market_analysis.competitors %}
+{% for competitor in market_analysis.competitors %}
+### {{ competitor.name }}
+
+**Strengths:**
+{% for strength in competitor.strengths %}
+- {{ strength }}
+{% endfor %}
+
+**Weaknesses:**
+{% for weakness in competitor.weaknesses %}
+- {{ weakness }}
+{% endfor %}
+
+**Market Position:** {{ competitor.market_position }}
+
+{% endfor %}
+{% else %}
+*Competitor analysis to be completed*
+{% endif %}
+
+## Competitor Map
+
+{% if market_analysis.competitor_map %}
+**Dimensions:** {{ market_analysis.competitor_map.dimensions | join(', ') }}
+
+**Positions:**
+{% for name, position in market_analysis.competitor_map.positions.items() %}
+- {{ name }}: {{ position }}
+{% endfor %}
+{% else %}
+*Competitor map to be developed*
+{% endif %}
+
+## Differentiation Opportunities
+
+{% if market_analysis.differentiation_opportunities %}
+{% for opportunity in market_analysis.differentiation_opportunities %}
+- {{ opportunity }}
+{% endfor %}
+{% else %}
+*Differentiation opportunities to be identified*
+{% endif %}
+
+## Positioning Strategy
+
+{{ market_analysis.positioning_strategy }}
+
+## Market Size
+
+{{ market_analysis.market_size or "To be researched" }}
+
+## Market Trends
+
+{% if market_analysis.market_trends %}
+{% for trend in market_analysis.market_trends %}
+- {{ trend }}
+{% endfor %}
+{% else %}
+*Market trends to be analyzed*
+{% endif %}
+

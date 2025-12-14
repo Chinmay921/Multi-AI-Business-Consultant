@@ -1,0 +1,55 @@
+# Risk Analysis & Mitigation
+
+## Identified Risks
+
+{% if risk_analysis.risks %}
+{% for risk in risk_analysis.risks %}
+### Risk {{ loop.index }}: {{ risk.description }}
+
+- **Category:** {{ risk.category }}
+- **Severity:** {{ risk.severity }}
+- **Likelihood:** {{ risk.likelihood }}
+- **Impact:** {{ risk.impact }}
+
+{% endfor %}
+{% else %}
+*Risk assessment to be completed*
+{% endif %}
+
+## Mitigation Strategies
+
+{% if risk_analysis.mitigations %}
+{% for mitigation in risk_analysis.mitigations %}
+### Mitigation for: {{ mitigation.risk_id }}
+
+**Strategy:** {{ mitigation.strategy }}
+
+**Owner:** {{ mitigation.owner }}
+
+**Timeline:** {{ mitigation.timeline }}
+
+{% endfor %}
+{% else %}
+*Mitigation strategies to be developed*
+{% endif %}
+
+## Compliance Flags
+
+{% if risk_analysis.compliance_flags %}
+{% for flag in risk_analysis.compliance_flags %}
+- ⚠️ {{ flag }}
+{% endfor %}
+{% else %}
+*No compliance flags identified*
+{% endif %}
+
+## Legal Considerations
+
+{% if risk_analysis.legal_considerations %}
+{% for consideration in risk_analysis.legal_considerations %}
+- {{ consideration }}
+{% endfor %}
+{% else %}
+*Legal considerations to be reviewed*
+{% endif %}
+

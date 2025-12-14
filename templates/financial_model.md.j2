@@ -1,0 +1,76 @@
+# Financial Model & Analysis
+
+## Unit Economics
+
+{% if financial_model.unit_economics %}
+{% for metric, value in financial_model.unit_economics.items() %}
+- **{{ metric.replace('_', ' ').title() }}:** {{ value }}
+{% endfor %}
+{% else %}
+*Unit economics to be calculated*
+{% endif %}
+
+## Pricing Strategy
+
+{{ financial_model.pricing_strategy }}
+
+## Revenue Projections
+
+{% if financial_model.revenue_projections %}
+{% for period, projection in financial_model.revenue_projections.items() %}
+- **{{ period.replace('_', ' ').title() }}:** {{ projection }}
+{% endfor %}
+{% else %}
+*Revenue projections to be developed*
+{% endif %}
+
+## Cost Structure
+
+{% if financial_model.cost_structure %}
+**Fixed Costs:** {{ financial_model.cost_structure.fixed_costs }}
+
+**Variable Costs:** {{ financial_model.cost_structure.variable_costs }}
+
+**Cost Breakdown:** {{ financial_model.cost_structure.cost_breakdown }}
+{% else %}
+*Cost structure to be analyzed*
+{% endif %}
+
+## ROI Model
+
+{% if financial_model.roi_model %}
+**Investment Required:** {{ financial_model.roi_model.investment }}
+
+**Expected Return:** {{ financial_model.roi_model.expected_return }}
+
+**ROI:** {{ financial_model.roi_model.roi }}
+
+**Payback Period:** {{ financial_model.roi_model.payback_period }}
+
+**Key Assumptions:**
+{% if financial_model.roi_model.assumptions %}
+{% for assumption in financial_model.roi_model.assumptions %}
+- {{ assumption }}
+{% endfor %}
+{% endif %}
+{% else %}
+*ROI model to be developed*
+{% endif %}
+
+## Break-Even Analysis
+
+{% if financial_model.break_even_analysis %}
+**Break-Even Point:** {{ financial_model.break_even_analysis.break_even_point }}
+
+**Break-Even Timeline:** {{ financial_model.break_even_analysis.break_even_timeline }}
+
+**Key Assumptions:**
+{% if financial_model.break_even_analysis.key_assumptions %}
+{% for assumption in financial_model.break_even_analysis.key_assumptions %}
+- {{ assumption }}
+{% endfor %}
+{% endif %}
+{% else %}
+*Break-even analysis to be completed*
+{% endif %}
+

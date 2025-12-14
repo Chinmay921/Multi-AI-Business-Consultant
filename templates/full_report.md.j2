@@ -1,0 +1,300 @@
+# Business Consulting Report
+
+**Generated:** {{ generated_at }}  
+**Version:** {{ version }}
+
+---
+
+## Executive Summary
+
+{{ executive_summary }}
+
+---
+
+## 1. Discovery & Problem Analysis
+
+### Problem Statement
+
+{{ discovery.problem_statement }}
+
+### Key Assumptions
+
+{% if discovery.key_assumptions %}
+{% for assumption in discovery.key_assumptions %}
+- {{ assumption }}
+{% endfor %}
+{% endif %}
+
+### Facts Gathered
+
+{% if discovery.facts_gathered %}
+{% for fact in discovery.facts_gathered %}
+- {{ fact }}
+{% endfor %}
+{% endif %}
+
+### Questions Clarified
+
+{% if discovery.questions_clarified %}
+{% for question in discovery.questions_clarified %}
+- {{ question }}
+{% endfor %}
+{% endif %}
+
+### Business Model
+
+{{ discovery.business_model }}
+
+### Target Market
+
+{{ discovery.target_market }}
+
+---
+
+## 2. Market & Competitor Analysis
+
+### Competitors
+
+{% if market_analysis.competitors %}
+{% for competitor in market_analysis.competitors %}
+#### {{ competitor.name }}
+
+**Strengths:**
+{% for strength in competitor.strengths %}
+- {{ strength }}
+{% endfor %}
+
+**Weaknesses:**
+{% for weakness in competitor.weaknesses %}
+- {{ weakness }}
+{% endfor %}
+
+**Market Position:** {{ competitor.market_position }}
+
+{% endfor %}
+{% endif %}
+
+### Differentiation Opportunities
+
+{% if market_analysis.differentiation_opportunities %}
+{% for opportunity in market_analysis.differentiation_opportunities %}
+- {{ opportunity }}
+{% endfor %}
+{% endif %}
+
+### Positioning Strategy
+
+{{ market_analysis.positioning_strategy }}
+
+### Market Size
+
+{{ market_analysis.market_size or "To be researched" }}
+
+### Market Trends
+
+{% if market_analysis.market_trends %}
+{% for trend in market_analysis.market_trends %}
+- {{ trend }}
+{% endfor %}
+{% endif %}
+
+---
+
+## 3. Strategic Recommendations
+
+### Strategic Options
+
+{% if strategy.strategic_options %}
+{% for option in strategy.strategic_options %}
+#### Option {{ loop.index }}: {{ option.name }}
+
+**Description:** {{ option.description }}
+
+**Pros:**
+{% for pro in option.pros %}
+- {{ pro }}
+{% endfor %}
+
+**Cons:**
+{% for con in option.cons %}
+- {{ con }}
+{% endfor %}
+
+**Feasibility:** {{ option.feasibility }} | **Impact:** {{ option.impact }}
+
+{% endfor %}
+{% endif %}
+
+### Recommendation
+
+{{ strategy.recommendation }}
+
+### Rationale
+
+{{ strategy.rationale }}
+
+### Success Metrics
+
+{% if strategy.success_metrics %}
+{% for metric in strategy.success_metrics %}
+- {{ metric }}
+{% endfor %}
+{% endif %}
+
+---
+
+## 4. Execution Plan: 30/60/90 Day Roadmap
+
+### 30-Day Plan
+
+{% if execution_plan.plan_30_days %}
+{% for task in execution_plan.plan_30_days %}
+- **{{ task.task }}** (Owner: {{ task.owner }}, Priority: {{ task.priority }})
+{% endfor %}
+{% endif %}
+
+### 60-Day Plan
+
+{% if execution_plan.plan_60_days %}
+{% for task in execution_plan.plan_60_days %}
+- **{{ task.task }}** (Owner: {{ task.owner }}, Priority: {{ task.priority }})
+{% endfor %}
+{% endif %}
+
+### 90-Day Plan
+
+{% if execution_plan.plan_90_days %}
+{% for task in execution_plan.plan_90_days %}
+- **{{ task.task }}** (Owner: {{ task.owner }}, Priority: {{ task.priority }})
+{% endfor %}
+{% endif %}
+
+### Process Improvements
+
+{% if execution_plan.process_improvements %}
+{% for improvement in execution_plan.process_improvements %}
+- {{ improvement }}
+{% endfor %}
+{% endif %}
+
+### Organizational Changes
+
+{% if execution_plan.org_changes %}
+{% for change in execution_plan.org_changes %}
+- {{ change }}
+{% endfor %}
+{% endif %}
+
+---
+
+## 5. Financial Model & Analysis
+
+### Unit Economics
+
+{% if financial_model.unit_economics %}
+{% for metric, value in financial_model.unit_economics.items() %}
+- **{{ metric.replace('_', ' ').title() }}:** {{ value }}
+{% endfor %}
+{% endif %}
+
+### Pricing Strategy
+
+{{ financial_model.pricing_strategy }}
+
+### Revenue Projections
+
+{% if financial_model.revenue_projections %}
+{% for period, projection in financial_model.revenue_projections.items() %}
+- **{{ period.replace('_', ' ').title() }}:** {{ projection }}
+{% endfor %}
+{% endif %}
+
+### ROI Model
+
+{% if financial_model.roi_model %}
+- **Investment:** {{ financial_model.roi_model.investment }}
+- **Expected Return:** {{ financial_model.roi_model.expected_return }}
+- **ROI:** {{ financial_model.roi_model.roi }}
+- **Payback Period:** {{ financial_model.roi_model.payback_period }}
+{% endif %}
+
+---
+
+## 6. Risk Analysis & Mitigation
+
+### Identified Risks
+
+{% if risk_analysis.risks %}
+{% for risk in risk_analysis.risks %}
+#### {{ risk.description }}
+
+- **Category:** {{ risk.category }}
+- **Severity:** {{ risk.severity }} | **Likelihood:** {{ risk.likelihood }}
+- **Impact:** {{ risk.impact }}
+
+{% endfor %}
+{% endif %}
+
+### Mitigation Strategies
+
+{% if risk_analysis.mitigations %}
+{% for mitigation in risk_analysis.mitigations %}
+- **{{ mitigation.risk_id }}:** {{ mitigation.strategy }} (Owner: {{ mitigation.owner }}, Timeline: {{ mitigation.timeline }})
+{% endfor %}
+{% endif %}
+
+### Compliance Flags
+
+{% if risk_analysis.compliance_flags %}
+{% for flag in risk_analysis.compliance_flags %}
+- ⚠️ {{ flag }}
+{% endfor %}
+{% endif %}
+
+---
+
+## 7. KPI Dashboard
+
+### Revenue Metrics
+
+{% if kpi_dashboard.revenue_metrics %}
+{% for metric, value in kpi_dashboard.revenue_metrics.items() %}
+- **{{ metric.replace('_', ' ').title() }}:** {{ value }}
+{% endfor %}
+{% endif %}
+
+### Operational Metrics
+
+{% if kpi_dashboard.operational_metrics %}
+{% for metric, value in kpi_dashboard.operational_metrics.items() %}
+- **{{ metric.replace('_', ' ').title() }}:** {{ value }}
+{% endfor %}
+{% endif %}
+
+### Financial Metrics
+
+{% if kpi_dashboard.financial_metrics %}
+{% for metric, value in kpi_dashboard.financial_metrics.items() %}
+- **{{ metric.replace('_', ' ').title() }}:** {{ value }}
+{% endfor %}
+{% endif %}
+
+### Target Metrics
+
+{% if kpi_dashboard.targets %}
+{% for target, value in kpi_dashboard.targets.items() %}
+- **{{ target.replace('_', ' ').title() }}:** {{ value }}
+{% endfor %}
+{% endif %}
+
+---
+
+## Appendix
+
+**Report Generation Date:** {{ generated_at }}  
+**Report Version:** {{ version }}
+
+---
+
+*This report was generated by the Multi-AI Business Consultant system using Qwen3:8b.*
+
