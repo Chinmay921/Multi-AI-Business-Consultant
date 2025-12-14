@@ -122,7 +122,7 @@ multi-ai-business-consultant/
 ## Output
 
 The system generates:
-- A comprehensive 10-15 page business report
+- A comprehensive business report
 - Action plan with 30/60/90 day milestones
 - KPI dashboard with key metrics
 
